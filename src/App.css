@@ -14,6 +14,12 @@ body{
 
     font-family:Arial, Helvetica, sans-serif;
 
+     background-image: url("./assets/imagens/fundo-vento.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
 }
 
 .pagina{

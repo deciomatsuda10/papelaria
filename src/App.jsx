@@ -45,7 +45,7 @@ function App() {
   return (
     <div
       className="pagina"
-      style={{ backgroundImage: `url(${fundo})` }}
+         
     >
       <header className="cabecalho">
         <h1>Papelaria Moderna</h1>
