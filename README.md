@@ -1,16 +1,54 @@
-# React + Vite
+# 📚 Papelaria Moderna
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Projeto desenvolvido em React como prática de Front-end.
 
-Currently, two official plugins are available:
+## Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Criar uma página simples de uma papelaria, aplicando conceitos básicos de React, HTML, CSS e JavaScript, como componentes, organização do código e estilização.
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* JavaScript
+* HTML
+* CSS
+* Vite
 
-## Expanding the Oxlint configuration
+## Como executar o projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Clone este repositório.
+2. Abra a pasta do projeto no Visual Studio Code.
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Inicie o projeto:
+
+```bash
+npm run dev
+```
+
+5. Abra o endereço informado no terminal (geralmente `http://localhost:5173`).
+
+## Aprendizados
+
+Durante este projeto foram praticados conceitos como:
+
+* Organização de componentes React;
+* Utilização de JSX;
+* Estilização com CSS;
+* Estruturação de uma página simples;
+* Organização de arquivos do projeto.
+
+---
+
+# ✅ Checklist antes de publicar
+
+* [ ] O projeto executa sem erros.
+* [ ] Todas as imagens aparecem corretamente.
+* [ ] Os arquivos desnecessários foram removidos.
+* [ ] O README está atualizado.
+* [ ] O projeto foi enviado para o GitHub.
+* [ ] O link do repositório funciona.
