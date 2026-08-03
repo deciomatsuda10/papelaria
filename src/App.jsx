@@ -1,12 +1,18 @@
 import "./App.css";
 
-import fundo from "./assets/imagens/fundo-vento.png";
 import cadernos from "./assets/imagens/cadernos.png";
 import canetas from "./assets/imagens/canetas.png";
 import lapis from "./assets/imagens/lapis.png";
 import mochila from "./assets/imagens/mochila.png";
 import pastas from "./assets/imagens/pastas-organizadoras.png";
 import escritorio from "./assets/imagens/material-escritorio.png";
+
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Sobre from "./components/Sobre";
+import ListaProdutos from "./components/ListaProdutos";
+import Contato from "./components/Contato";
+import Footer from "./components/Footer";
 
 function App() {
   const produtos = [
@@ -42,81 +48,47 @@ function App() {
     },
   ];
 
-  return (
-    <div
-      className="pagina"
-         
-    >
-      <header className="cabecalho">
-        <h1>Papelaria Moderna</h1>
+  const links = [
+    { texto: "Início", destino: "#hero" },
+    { texto: "Sobre", destino: "#sobre" },
+    { texto: "Produtos", destino: "#servicos" },
+    { texto: "Contato", destino: "#contato" },
+  ];
 
-        <nav className="menu">
-          <a href="#hero">Início</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#servicos">Produtos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-      </header>
+  return (
+    <div className="pagina">
+
+      <Header
+        titulo="Papelaria Moderna"
+        links={links}
+      />
 
       <main>
-        <section id="hero" className="hero">
-          <h2>Tudo para escola, escritório e criatividade</h2>
 
-          <p>
-            Produtos de qualidade para estudantes,
-            profissionais e empresas.
-          </p>
+        <Hero
+          titulo="Tudo para escola, escritório e criatividade"
+          descricao="Produtos de qualidade para estudantes, profissionais e empresas."
+          textoBotao="Conheça nossos produtos"
+          linkBotao="#servicos"
+        />
 
-          <a href="#servicos" className="botao">
-            Conheça nossos produtos
-          </a>
-        </section>
+        <Sobre
+          titulo="Sobre a Papelaria Moderna"
+          descricao="A Papelaria Moderna oferece materiais escolares, itens para escritório, produtos para artesanato e soluções para organização. Nosso objetivo é unir qualidade, variedade e bom atendimento."
+        />
 
-        <section id="sobre" className="sobre">
-          <h2>Sobre a Papelaria Moderna</h2>
+        <ListaProdutos produtos={produtos} />
 
-          <p>
-            A Papelaria Moderna oferece materiais escolares,
-            itens para escritório, produtos para artesanato e
-            soluções para organização. Nosso objetivo é unir
-            qualidade, variedade e bom atendimento.
-          </p>
-        </section>
+        <Contato
+          telefone="(11) 99999-9999"
+          email="contato@papelariamoderna.com.br"
+          horario="Segunda a sábado - 9h às 18h"
+        />
 
-        <section id="servicos" className="servicos">
-          <h2>Nossos Produtos</h2>
-
-          <div className="lista-cards">
-            {produtos.map((produto) => (
-              <article className="card" key={produto.nome}>
-                <img
-                  src={produto.imagem}
-                  alt={produto.nome}
-                  className="imagem-card"
-                />
-
-                <h3>{produto.nome}</h3>
-
-                <p>{produto.descricao}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="contato" className="contato">
-          <h2>Contato</h2>
-
-          <p>Telefone: (11) 99999-9999</p>
-
-          <p>Email: contato@papelariamoderna.com.br</p>
-
-          <p>Segunda a sábado - 9h às 18h</p>
-        </section>
       </main>
 
-      <footer className="rodape">
-        <p>Papelaria Moderna</p>
-      </footer>
+      <Footer texto="Papelaria Moderna" />
+
     </div>
   );
 }
