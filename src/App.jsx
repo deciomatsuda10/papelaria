@@ -74,7 +74,7 @@ function App() {
 
         <Sobre
           titulo="Sobre a Papelaria Moderna"
-          descricao="A Papelaria Moderna oferece materiais escolares, itens para escritório, produtos para artesanato e soluções para organização. Nosso objetivo é unir qualidade, variedade e bom atendimento."
+          descricao="A Papelaria Moderna oferece materiais escolares, itens para escritório, produtos para artesanato e soluções para organização. Nosso objetivo é unir qualidade, variedade e bom atendimento. Venha nos conhecer e torne-se nosso cliente." 
         />
 
         <ListaProdutos produtos={produtos} />
