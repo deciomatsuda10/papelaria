@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./App.css";
 
+import fundo from "./assets/imagens/fundo-vento.png";
 import cadernos from "./assets/imagens/cadernos.png";
 import canetas from "./assets/imagens/canetas.png";
 import lapis from "./assets/imagens/lapis.png";
@@ -7,14 +9,9 @@ import mochila from "./assets/imagens/mochila.png";
 import pastas from "./assets/imagens/pastas-organizadoras.png";
 import escritorio from "./assets/imagens/material-escritorio.png";
 
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Sobre from "./components/Sobre";
-import ListaProdutos from "./components/ListaProdutos";
-import Contato from "./components/Contato";
-import Footer from "./components/Footer";
-
 function App() {
+  const [busca,setBusca]=useState("");
+
   const produtos = [
     {
       nome: "Cadernos",
@@ -48,47 +45,92 @@ function App() {
     },
   ];
 
-  const links = [
-    { texto: "Início", destino: "#hero" },
-    { texto: "Sobre", destino: "#sobre" },
-    { texto: "Produtos", destino: "#servicos" },
-    { texto: "Contato", destino: "#contato" },
-  ];
+  const produtosFiltrados = produtos.filter((produto)=>produto.nome.toLowerCase().includes(busca.toLowerCase()));
 
   return (
-    <div className="pagina">
+    <div
+      className="pagina"
+      style={{ backgroundImage: `url(${fundo})` }}
+    >
+      <header className="cabecalho">
+        <h1>Papelaria Moderna</h1>
 
-      <Header
-        titulo="Papelaria Moderna"
-        links={links}
-      />
+        <nav className="menu">
+          <a href="#hero">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Produtos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
 
       <main>
+        <section id="hero" className="hero">
+          <h2>Tudo para escola, escritório e criatividade</h2>
 
-        <Hero
-          titulo="Tudo para escola, escritório e criatividade"
-          descricao="Produtos de qualidade para estudantes, profissionais e empresas."
-          textoBotao="Conheça nossos produtos"
-          linkBotao="#servicos"
-        />
+          <p>
+            Produtos de qualidade para estudantes,
+            profissionais e empresas.
+          </p>
 
-        <Sobre
-          titulo="Sobre a Papelaria Moderna"
-          descricao="A Papelaria Moderna oferece materiais escolares, itens para escritório, produtos para artesanato e soluções para organização. Nosso objetivo é unir qualidade, variedade e bom atendimento. Venha nos conhecer e torne-se nosso cliente." 
-        />
+          <a href="#servicos" className="botao">
+            Conheça nossos produtos
+          </a>
+        </section>
 
-        <ListaProdutos produtos={produtos} />
+        <section id="sobre" className="sobre">
+          <h2>Sobre a Papelaria Moderna</h2>
 
-        <Contato
-          telefone="(11) 99999-9999"
-          email="contato@papelariamoderna.com.br"
-          horario="Segunda a sábado - 9h às 18h"
-        />
+          <p>
+            A Papelaria Moderna oferece materiais escolares,
+            itens para escritório, produtos para artesanato e
+            soluções para organização. Nosso objetivo é unir
+            qualidade, variedade e bom atendimento.
+          </p>
+        </section>
 
+        <section id="servicos" className="servicos">
+          <h2>Nossos Produtos</h2>
+
+          <input
+            type="text"
+            className="campo-busca"
+            placeholder="Buscar produto..."
+            value={busca}
+            onChange={(e)=>setBusca(e.target.value)}
+          />
+
+          <div className="lista-cards">
+            {produtosFiltrados.length===0 && <p className="sem-resultado">Nenhum produto encontrado.</p>}
+            {produtosFiltrados.map((produto) => (
+              <article className="card" key={produto.nome}>
+                <img
+                  src={produto.imagem}
+                  alt={produto.nome}
+                  className="imagem-card"
+                />
+
+                <h3>{produto.nome}</h3>
+
+                <p>{produto.descricao}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="contato" className="contato">
+          <h2>Contato</h2>
+
+          <p>Telefone: (11) 99999-9999</p>
+
+          <p>Email: contato@papelariamoderna.com.br</p>
+
+          <p>Segunda a sábado - 9h às 18h</p>
+        </section>
       </main>
 
-      <Footer texto="Papelaria Moderna" />
-
+      <footer className="rodape">
+        <p>Papelaria Moderna</p>
+      </footer>
     </div>
   );
 }
