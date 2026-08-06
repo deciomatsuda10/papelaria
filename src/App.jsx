@@ -8,6 +8,7 @@ import lapis from "./assets/imagens/lapis.png";
 import mochila from "./assets/imagens/mochila.png";
 import pastas from "./assets/imagens/pastas-organizadoras.png";
 import escritorio from "./assets/imagens/material-escritorio.png";
+import lousa from "./assets/imagens/lousa.png";
 
 function App() {
   const [busca,setBusca]=useState("");
@@ -42,6 +43,12 @@ function App() {
       nome: "Material de Escritório",
       imagem: escritorio,
       descricao: "Grampeadores, blocos, clips e muito mais.",
+      
+    },
+    {
+      nome: "Material de Sala de Aula",
+      imagem: lousa,
+      descricao: "Lousas, giz , retro projetores e tudo que um professor precisa.",
     },
   ];
 
